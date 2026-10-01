@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dietrich Odontologia | Guabiruba — Demonstração WolfStudio</title>
+<meta name="description" content="Demonstração WolfStudio — proposta de site de lançamento para a Dietrich Odontologia, Guabiruba/SC. Não é o site oficial.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F7F6;--white:#fff;--ink:#0D2B35;--muted:#4F6870;
+  --teal:#177E89;--teal-d:#0F5F69;--aqua:#7CC8CF;--mist:#E1EEEE;--line:#D5E2E2;--wa:#12894A;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--aqua);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,90%);margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+
+.ribbon{background:var(--ink);color:#B9D3D6;font-size:.8rem;text-align:center;padding:.5rem 1rem}
+.ribbon b{color:#fff;font-weight:600}
+
+header{position:sticky;top:0;z-index:40;background:rgba(244,247,246,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
+.logo{display:flex;align-items:center;gap:.7rem}
+.mark{width:42px;height:42px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.mark svg{width:20px;height:24px}
+.logo strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.1}
+.logo small{display:block;font-size:.74rem;color:var(--muted);letter-spacing:.02em}
+.links{display:flex;align-items:center;gap:1.6rem;font-size:.94rem;font-weight:500;color:var(--muted)}
+.links a:hover{color:var(--teal)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:999px;font:600 .95rem var(--sans);border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-p{background:var(--teal);color:#fff}.btn-p:hover{background:var(--teal-d)}
+.btn-o{border-color:var(--ink);color:var(--ink)}.btn-o:hover{background:var(--ink);color:#fff}
+.btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:#0E7340}
+.btn-sm{padding:.6rem 1.15rem;font-size:.88rem}
+
+/* hero */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,5.5rem);background:radial-gradient(60% 70% at 88% 30%,#DCEDEC,transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero h1{font-size:clamp(2.7rem,6.4vw,5rem);line-height:1.02;margin-bottom:1.3rem;animation:rise .9s .1s both}
+.hero .lead{font-size:1.12rem;color:var(--muted);max-width:32rem;margin-bottom:1.9rem;animation:rise .9s .25s both}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.4rem;animation:rise .9s .4s both}
+.facts{display:flex;flex-wrap:wrap;gap:1.2rem 2.6rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted);animation:rise .9s .55s both}
+.facts b{display:block;color:var(--ink);font-weight:600}
+.stage{position:relative;aspect-ratio:4/5;max-height:560px;border-radius:200px 200px 32px 32px;background:linear-gradient(170deg,#CFE7E8,#EAF4F3 70%);display:grid;place-items:center;overflow:hidden}
+.stage::before,.stage::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(23,126,137,.25)}
+.stage::before{width:78%;aspect-ratio:1}
+.stage::after{width:112%;aspect-ratio:1}
+.tooth{width:52%;position:relative;z-index:1;filter:drop-shadow(0 22px 26px rgba(13,43,53,.18))}
+.tooth .body{fill:#fff;fill-opacity:0;stroke:var(--ink);stroke-width:2.4;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .3s ease forwards,fill 1s 2.2s forwards}
+.tooth .shine{fill:none;stroke:var(--aqua);stroke-width:3;stroke-linecap:round;opacity:0;animation:fill 1s 2.6s forwards}
+.badge{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:2;background:var(--white);border-radius:18px;padding:.85rem 1.1rem;font-size:.86rem;color:var(--muted);box-shadow:0 10px 30px rgba(13,43,53,.1)}
+.badge b{display:block;color:var(--ink);font-size:.95rem}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fill{to{fill-opacity:1;opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+h2{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.08}
+.kicker{color:var(--teal-d);font-weight:600;font-size:.9rem;margin-bottom:.7rem}
+
+/* serviços */
+.svc-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.svc-head{position:sticky;top:6rem}
+.svc-head p{color:var(--muted);margin:1rem 0}
+.note{font-size:.82rem;color:var(--muted);border-left:3px solid var(--aqua);padding-left:.8rem}
+.svc{display:flex;justify-content:space-between;align-items:center;gap:1.2rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc h3{font-family:var(--sans);font-weight:600;font-size:1.12rem;transition:color .2s}
+.svc p{color:var(--muted);font-size:.93rem;max-width:30rem}
+.svc span{font-size:.88rem;font-weight:600;color:var(--teal);white-space:nowrap;text-decoration:underline;text-underline-offset:4px}
+.svc:hover h3{color:var(--teal)}
+
+/* agendar */
+.book{background:var(--ink);color:#C6DCDF}
+.book h2{color:#fff}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.steps{list-style:none;margin-top:2rem;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;padding:1.1rem 0;border-top:1px solid rgba(255,255,255,.14)}
+.steps li::before{content:counter(s);font-family:var(--serif);font-size:2rem;line-height:1;color:var(--aqua)}
+.steps b{display:block;color:#fff;font-weight:600}
+.steps span{font-size:.93rem}
+form{background:var(--white);color:var(--ink);border-radius:28px;padding:clamp(1.3rem,3vw,2rem)}
+fieldset{border:0;margin-bottom:1.3rem}
+legend,label.t{display:block;font-weight:600;font-size:.92rem;margin-bottom:.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:block;padding:.55rem 1rem;border:1.5px solid var(--line);border-radius:999px;font-size:.92rem;transition:.2s}
+.chip input:checked+span{background:var(--teal);border-color:var(--teal);color:#fff}
+.chip input:focus-visible+span{outline:3px solid var(--aqua);outline-offset:2px}
+input[type=text]{width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:14px;font:inherit;background:var(--paper)}
+input[type=text]:focus{outline:3px solid var(--aqua);border-color:var(--teal)}
+.preview{margin:0 0 1.2rem}
+.preview small{display:block;font-weight:600;font-size:.82rem;color:var(--muted);margin-bottom:.4rem}
+#msg{background:#E3F6DA;border-radius:16px 16px 16px 4px;padding:.9rem 1.1rem;font-size:.94rem;min-height:4.4rem}
+form .btn{width:100%}
+
+/* local */
+.loc-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.addr{margin:1.4rem 0 1.8rem;font-size:1.05rem}
+.addr p{padding:.7rem 0;border-top:1px solid var(--line)}
+.addr p:last-child{border-bottom:1px solid var(--line)}
+.addr small{display:block;font-size:.8rem;color:var(--muted)}
+.map{border-radius:28px;overflow:hidden;background:var(--mist);min-height:360px;border:1px solid var(--line)}
+.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0}
+
+footer{background:var(--mist);padding:2rem 0 5.5rem;font-size:.86rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
+.float{position:fixed;right:1rem;bottom:1rem;z-index:50;box-shadow:0 12px 30px rgba(18,137,74,.35)}
+
+@media (max-width:860px){
+  .links a:not(.btn){display:none}
+  .hero-grid,.svc-grid,.book-grid,.loc-grid{grid-template-columns:1fr}
+  .stage{max-height:420px;aspect-ratio:1/1;border-radius:32px}
+  .svc-head{position:static}
+  .svc{flex-direction:column;align-items:flex-start;gap:.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .tooth .body{stroke-dashoffset:0;fill-opacity:1}.tooth .shine{opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="ribbon"><b>Demonstração WolfStudio</b> · proposta de site de lançamento. Não é o site oficial da clínica.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#topo" aria-label="Dietrich Odontologia, início">
+      <span class="mark"><svg viewBox="0 0 200 240" aria-hidden="true"><path d="M100 28C78 12 40 14 34 52c-4 28 12 48 16 78 4 40 6 84 24 86 16 2 14-48 26-48s10 50 26 48c18-2 20-46 24-86 4-30 20-50 16-78-6-38-44-40-66-24Z" fill="#fff"/></svg></span>
+      <span><strong>Dietrich Odontologia</strong><small>Guabiruba, Santa Catarina</small></span>
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#agendar">Agendar</a>
+      <a href="#local">Localização</a>
+      <a class="btn btn-p btn-sm" href="#agendar">Agendar avaliação</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Cuidar do seu sorriso, sem pressa e sem complicação.</h1>
+        <p class="lead">Clínica odontológica nova no bairro São Pedro, em Guabiruba. Escolha o motivo e o período, e a gente responde pelo WhatsApp com os horários disponíveis.</p>
+        <div class="cta">
+          <a class="btn btn-p" href="#agendar">Agendar avaliação</a>
+          <a class="btn btn-o" href="#servicos">Ver serviços</a>
+        </div>
+        <div class="facts">
+          <div><b>Rua Antonio Carminatti, 944</b>São Pedro, Guabiruba/SC</div>
+          <div><b>(47) 99265-1303</b>Atendimento pelo WhatsApp</div>
+        </div>
+      </div>
+      <div class="stage" role="img" aria-label="Ilustração de um dente">
+        <svg class="tooth" viewBox="0 0 200 240" aria-hidden="true">
+          <path class="body" pathLength="1" d="M100 28C78 12 40 14 34 52c-4 28 12 48 16 78 4 40 6 84 24 86 16 2 14-48 26-48s10 50 26 48c18-2 20-46 24-86 4-30 20-50 16-78-6-38-44-40-66-24Z"/>
+          <path class="shine" d="M62 50c4-10 16-16 28-12"/>
+        </svg>
+        <div class="badge"><b>Avaliação inicial</b>Agende em menos de um minuto.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap svc-grid">
+      <div class="svc-head">
+        <div class="kicker">Serviços</div>
+        <h2>Cuidado completo para você e sua família.</h2>
+        <p>Toque em um serviço para tirar dúvidas direto no WhatsApp.</p>
+        <p class="note">Serviços de exemplo do setor. A lista final é definida pela clínica.</p>
+      </div>
+      <div>
+        <a class="svc" data-s="avaliação e diagnóstico"><div><h3>Avaliação e diagnóstico</h3><p>Primeira visita, exame e plano de tratamento pensado para você.</p></div><span>Perguntar</span></a>
+        <a class="svc" data-s="limpeza e prevenção"><div><h3>Limpeza e prevenção</h3><p>Profilaxia, orientação de higiene e acompanhamento regular.</p></div><span>Perguntar</span></a>
+        <a class="svc" data-s="restaurações"><div><h3>Restaurações</h3><p>Tratamento de cáries com acabamento estético.</p></div><span>Perguntar</span></a>
+        <a class="svc" data-s="clareamento"><div><h3>Clareamento</h3><p>Opções indicadas após avaliação clínica.</p></div><span>Perguntar</span></a>
+        <a class="svc" data-s="tratamento de canal"><div><h3>Endodontia</h3><p>Tratamento de canal quando indicado, com foco em conforto.</p></div><span>Perguntar</span></a>
+        <a class="svc" data-s="próteses e reabilitação"><div><h3>Próteses e reabilitação</h3><p>Soluções para repor dentes e devolver função e estética.</p></div><span>Perguntar</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="agendar">
+    <div class="wrap book-grid">
+      <div>
+        <div class="kicker" style="color:var(--aqua)">Agendamento</div>
+        <h2>Marque sua avaliação pelo WhatsApp.</h2>
+        <ol class="steps">
+          <li><div><b>Você monta a mensagem</b><span>Escolha o motivo e o melhor período ao lado.</span></div></li>
+          <li><div><b>A clínica confirma o horário</b><span>Você recebe as opções disponíveis na própria conversa.</span></div></li>
+          <li><div><b>Você faz a avaliação inicial</b><span>Conversa, exame e um plano de cuidado combinado com você.</span></div></li>
+        </ol>
+      </div>
+      <form id="book" autocomplete="off">
+        <fieldset>
+          <legend>Motivo da consulta</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="motivo" value="avaliação inicial" checked><span>Avaliação inicial</span></label>
+            <label class="chip"><input type="radio" name="motivo" value="limpeza"><span>Limpeza</span></label>
+            <label class="chip"><input type="radio" name="motivo" value="clareamento"><span>Clareamento</span></label>
+            <label class="chip"><input type="radio" name="motivo" value="dor ou urgência"><span>Dor ou urgência</span></label>
+            <label class="chip"><input type="radio" name="motivo" value="outro assunto"><span>Outro</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Melhor período</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="periodo" value="de preferência pela manhã" checked><span>Manhã</span></label>
+            <label class="chip"><input type="radio" name="periodo" value="de preferência à tarde"><span>Tarde</span></label>
+            <label class="chip"><input type="radio" name="periodo" value="em qualquer período"><span>Tanto faz</span></label>
+          </div>
+        </fieldset>
+        <div style="margin-bottom:1.3rem">
+          <label class="t" for="nome">Seu nome (opcional)</label>
+          <input type="text" id="nome" name="nome" placeholder="Como devemos te chamar?">
+        </div>
+        <div class="preview"><small>Prévia da mensagem</small><div id="msg" aria-live="polite"></div></div>
+        <a class="btn btn-wa" id="go" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+      </form>
+    </div>
+  </section>
+
+  <section id="local">
+    <div class="wrap loc-grid">
+      <div>
+        <div class="kicker">Localização</div>
+        <h2>No coração do São Pedro, em Guabiruba.</h2>
+        <div class="addr">
+          <p><small>Endereço</small>Rua Antonio Carminatti, 944<br>São Pedro, Guabiruba/SC · CEP 88360-000</p>
+          <p><small>WhatsApp</small>(47) 99265-1303</p>
+        </div>
+        <a class="btn btn-o" href="https://www.google.com/maps/search/?api=1&query=Rua+Antonio+Carminatti+944+Guabiruba+SC" target="_blank" rel="noopener">Como chegar</a>
+      </div>
+      <div class="map"><iframe title="Mapa da Dietrich Odontologia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Rua+Antonio+Carminatti+944,+Guabiruba+SC&output=embed"></iframe></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Dietrich Odontologia · Guabiruba/SC · (47) 99265-1303</span>
+    <span>Demonstração criada pela WolfStudio</span>
+  </div>
+</footer>
+<a class="btn btn-wa float" id="fl" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+const W='https://wa.me/5547992651303',f=document.getElementById('book'),out=document.getElementById('msg'),go=document.getElementById('go');
+function upd(){
+  const d=new FormData(f),n=(d.get('nome')||'').trim();
+  const t='Olá, Dietrich Odontologia! '+(n?'Meu nome é '+n+'. ':'')+'Quero agendar: '+d.get('motivo')+', '+d.get('periodo')+'.';
+  out.textContent=t;go.href=W+'?text='+encodeURIComponent(t);
+}
+f.addEventListener('input',upd);f.addEventListener('submit',e=>e.preventDefault());upd();
+document.querySelectorAll('[data-s]').forEach(a=>{a.href=W+'?text='+encodeURIComponent('Olá! Quero saber mais sobre '+a.dataset.s+'.');a.target='_blank';a.rel='noopener'});
+document.getElementById('fl').href=W+'?text='+encodeURIComponent('Olá, gostaria de agendar uma avaliação.');
+</script>
+</body>
+</html>
