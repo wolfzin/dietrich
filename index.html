@@ -1,273 +1,335 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dietrich Odontologia | Guabiruba — Demonstração WolfStudio</title>
-<meta name="description" content="Demonstração WolfStudio — proposta de site de lançamento para a Dietrich Odontologia, Guabiruba/SC. Não é o site oficial.">
-<meta name="robots" content="noindex,nofollow">
+<title>Dietrich Odontologia · Consultório odontológico no bairro São Pedro, Guabiruba (demonstração)</title>
+<meta name="description" content="Consultório odontológico novo na Rua Antonio Carminatti, 944, bairro São Pedro, Guabiruba/SC. Agendamento por telefone.">
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#F4F7F6;--white:#fff;--ink:#0D2B35;--muted:#4F6870;
-  --teal:#177E89;--teal-d:#0F5F69;--aqua:#7CC8CF;--mist:#E1EEEE;--line:#D5E2E2;--wa:#12894A;
-  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
-  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:5rem}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--aqua);outline-offset:3px;border-radius:6px}
-.wrap{width:min(1120px,90%);margin:0 auto}
-h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
-
-.ribbon{background:var(--ink);color:#B9D3D6;font-size:.8rem;text-align:center;padding:.5rem 1rem}
-.ribbon b{color:#fff;font-weight:600}
-
-header{position:sticky;top:0;z-index:40;background:rgba(244,247,246,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
-.logo{display:flex;align-items:center;gap:.7rem}
-.mark{width:42px;height:42px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
-.mark svg{width:20px;height:24px}
-.logo strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.1}
-.logo small{display:block;font-size:.74rem;color:var(--muted);letter-spacing:.02em}
-.links{display:flex;align-items:center;gap:1.6rem;font-size:.94rem;font-weight:500;color:var(--muted)}
-.links a:hover{color:var(--teal)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:999px;font:600 .95rem var(--sans);border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
-.btn-p{background:var(--teal);color:#fff}.btn-p:hover{background:var(--teal-d)}
-.btn-o{border-color:var(--ink);color:var(--ink)}.btn-o:hover{background:var(--ink);color:#fff}
-.btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:#0E7340}
-.btn-sm{padding:.6rem 1.15rem;font-size:.88rem}
-
-/* hero */
-.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,5.5rem);background:radial-gradient(60% 70% at 88% 30%,#DCEDEC,transparent 70%)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-.hero h1{font-size:clamp(2.7rem,6.4vw,5rem);line-height:1.02;margin-bottom:1.3rem;animation:rise .9s .1s both}
-.hero .lead{font-size:1.12rem;color:var(--muted);max-width:32rem;margin-bottom:1.9rem;animation:rise .9s .25s both}
-.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.4rem;animation:rise .9s .4s both}
-.facts{display:flex;flex-wrap:wrap;gap:1.2rem 2.6rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted);animation:rise .9s .55s both}
-.facts b{display:block;color:var(--ink);font-weight:600}
-.stage{position:relative;aspect-ratio:4/5;max-height:560px;border-radius:200px 200px 32px 32px;background:linear-gradient(170deg,#CFE7E8,#EAF4F3 70%);display:grid;place-items:center;overflow:hidden}
-.stage::before,.stage::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(23,126,137,.25)}
-.stage::before{width:78%;aspect-ratio:1}
-.stage::after{width:112%;aspect-ratio:1}
-.tooth{width:52%;position:relative;z-index:1;filter:drop-shadow(0 22px 26px rgba(13,43,53,.18))}
-.tooth .body{fill:#fff;fill-opacity:0;stroke:var(--ink);stroke-width:2.4;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .3s ease forwards,fill 1s 2.2s forwards}
-.tooth .shine{fill:none;stroke:var(--aqua);stroke-width:3;stroke-linecap:round;opacity:0;animation:fill 1s 2.6s forwards}
-.badge{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:2;background:var(--white);border-radius:18px;padding:.85rem 1.1rem;font-size:.86rem;color:var(--muted);box-shadow:0 10px 30px rgba(13,43,53,.1)}
-.badge b{display:block;color:var(--ink);font-size:.95rem}
-@keyframes draw{to{stroke-dashoffset:0}}
-@keyframes fill{to{fill-opacity:1;opacity:1}}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
-section{padding:clamp(3.5rem,8vw,6rem) 0}
-h2{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.08}
-.kicker{color:var(--teal-d);font-weight:600;font-size:.9rem;margin-bottom:.7rem}
-
-/* serviços */
-.svc-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,5rem);align-items:start}
-.svc-head{position:sticky;top:6rem}
-.svc-head p{color:var(--muted);margin:1rem 0}
-.note{font-size:.82rem;color:var(--muted);border-left:3px solid var(--aqua);padding-left:.8rem}
-.svc{display:flex;justify-content:space-between;align-items:center;gap:1.2rem;padding:1.3rem 0;border-top:1px solid var(--line)}
-.svc:last-child{border-bottom:1px solid var(--line)}
-.svc h3{font-family:var(--sans);font-weight:600;font-size:1.12rem;transition:color .2s}
-.svc p{color:var(--muted);font-size:.93rem;max-width:30rem}
-.svc span{font-size:.88rem;font-weight:600;color:var(--teal);white-space:nowrap;text-decoration:underline;text-underline-offset:4px}
-.svc:hover h3{color:var(--teal)}
-
-/* agendar */
-.book{background:var(--ink);color:#C6DCDF}
-.book h2{color:#fff}
-.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
-.steps{list-style:none;margin-top:2rem;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;padding:1.1rem 0;border-top:1px solid rgba(255,255,255,.14)}
-.steps li::before{content:counter(s);font-family:var(--serif);font-size:2rem;line-height:1;color:var(--aqua)}
-.steps b{display:block;color:#fff;font-weight:600}
-.steps span{font-size:.93rem}
-form{background:var(--white);color:var(--ink);border-radius:28px;padding:clamp(1.3rem,3vw,2rem)}
-fieldset{border:0;margin-bottom:1.3rem}
-legend,label.t{display:block;font-weight:600;font-size:.92rem;margin-bottom:.6rem}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem}
-.chip{position:relative}
-.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
-.chip span{display:block;padding:.55rem 1rem;border:1.5px solid var(--line);border-radius:999px;font-size:.92rem;transition:.2s}
-.chip input:checked+span{background:var(--teal);border-color:var(--teal);color:#fff}
-.chip input:focus-visible+span{outline:3px solid var(--aqua);outline-offset:2px}
-input[type=text]{width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:14px;font:inherit;background:var(--paper)}
-input[type=text]:focus{outline:3px solid var(--aqua);border-color:var(--teal)}
-.preview{margin:0 0 1.2rem}
-.preview small{display:block;font-weight:600;font-size:.82rem;color:var(--muted);margin-bottom:.4rem}
-#msg{background:#E3F6DA;border-radius:16px 16px 16px 4px;padding:.9rem 1.1rem;font-size:.94rem;min-height:4.4rem}
-form .btn{width:100%}
-
-/* local */
-.loc-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-.addr{margin:1.4rem 0 1.8rem;font-size:1.05rem}
-.addr p{padding:.7rem 0;border-top:1px solid var(--line)}
-.addr p:last-child{border-bottom:1px solid var(--line)}
-.addr small{display:block;font-size:.8rem;color:var(--muted)}
-.map{border-radius:28px;overflow:hidden;background:var(--mist);min-height:360px;border:1px solid var(--line)}
-.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0}
-
-footer{background:var(--mist);padding:2rem 0 5.5rem;font-size:.86rem;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
-.float{position:fixed;right:1rem;bottom:1rem;z-index:50;box-shadow:0 12px 30px rgba(18,137,74,.35)}
-
-@media (max-width:860px){
-  .links a:not(.btn){display:none}
-  .hero-grid,.svc-grid,.book-grid,.loc-grid{grid-template-columns:1fr}
-  .stage{max-height:420px;aspect-ratio:1/1;border-radius:32px}
-  .svc-head{position:static}
-  .svc{flex-direction:column;align-items:flex-start;gap:.5rem}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{animation:none!important;transition:none!important}
-  .tooth .body{stroke-dashoffset:0;fill-opacity:1}.tooth .shine{opacity:1}
-}
+:root{--gelo:#FAFCFC;--petroleo:#1F5F6B;--menta:#CFE8E2;--coral:#F2A38A;--texto:#2E3A3D;--traco:#9AB3B0;
+  --tit:"Sora","Segoe UI",system-ui,sans-serif;--corpo:"Manrope","Segoe UI",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--gelo);color:var(--texto);font-family:var(--corpo);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--petroleo)}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--petroleo);color:#fff;padding:.7rem 1rem;z-index:99}
+.skip:focus{top:1rem}
+.demo{background:var(--menta);color:#2c4a4f;font-size:.8rem;text-align:center;padding:.3rem 1rem}
+.wrap{width:min(1040px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--tit);line-height:1.12;margin:0 0 .5em;color:var(--petroleo);letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,4.4vw,2.3rem);font-weight:600}
+h3{font-size:1.15rem;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:52px;padding:.75rem 1.4rem;border-radius:14px;font-family:var(--tit);font-weight:600;font-size:1rem;text-decoration:none;border:2px solid var(--petroleo)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-p{background:var(--petroleo);color:#fff}
+.btn-p:hover{background:#174a54}
+.btn-l{background:transparent;color:var(--petroleo)}
+.btn-l:hover{background:var(--menta)}
+/* topo */
+.barra{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+.sigla{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--tit);font-weight:700;color:var(--petroleo);text-decoration:none;min-height:44px}
+.sigla span{width:38px;height:38px;border-radius:12px;background:var(--petroleo);color:#fff;display:grid;place-items:center;font-size:1rem}
+.barra a.tel{font-weight:700;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.so-desk{display:none}.so-mob{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border:2px solid var(--petroleo);border-radius:12px}
+@media(min-width:620px){.so-desk{display:inline}.so-mob{display:none}}
+.sigla{white-space:nowrap}
+/* lançamento */
+.lanc{padding:1.5rem 0 3rem}
+.lanc .wrap{display:grid;gap:1.5rem;align-items:center}
+@media(min-width:860px){.lanc .wrap{grid-template-columns:1fr 1fr;gap:2.5rem}.lanc{padding:3rem 0 4rem}}
+.novo{display:inline-flex;align-items:center;gap:.5rem;background:var(--coral);color:#3a1b10;font-family:var(--tit);font-weight:600;font-size:.9rem;padding:.35rem .9rem;border-radius:999px;margin-bottom:1.1rem}
+.novo::before{content:"";width:8px;height:8px;border-radius:50%;background:#3a1b10}
+.lanc h1{font-size:clamp(2.4rem,8vw,4rem);font-weight:700}
+.lanc .sub{font-size:1.2rem;margin:0 0 1.6rem;max-width:34ch}
+.acoes{display:flex;flex-wrap:wrap;gap:.7rem}
+.ilu{max-width:480px;margin-inline:auto;width:100%}
+/* ícones */
+.icones{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+@media(min-width:760px){.icones{grid-template-columns:repeat(3,1fr)}}
+.icones li{background:#fff;border:1px solid #e1ecea;border-radius:20px;padding:1.3rem;display:grid;grid-template-columns:52px 1fr;gap:1rem;align-items:center}
+.ic{width:52px;height:52px;border-radius:16px;background:var(--menta);display:grid;place-items:center}
+.ic svg{width:28px;height:28px}
+.icones b{display:block;font-family:var(--tit);font-weight:600;color:var(--petroleo)}
+.icones p{margin:0;font-size:.98rem}
+.sec{padding:4rem 0}
+/* atendimento */
+.atend{display:grid;gap:1.4rem;align-items:start}
+@media(min-width:860px){.atend{grid-template-columns:1fr 1.1fr}}
+.cartao-serv{background:#fff;border:2px dashed var(--traco);border-radius:22px;padding:1.5rem;position:relative}
+.modelo{display:inline-block;font-size:.85rem;font-weight:700;color:#7a3a24;background:#fde5dc;border:1px dashed #d98366;border-radius:8px;padding:.25rem .7rem;margin-bottom:1rem}
+.cartao-serv ul{list-style:none;padding:0;margin:0}
+.cartao-serv li{display:flex;align-items:center;gap:.8rem;padding:.8rem 0;border-bottom:1px solid #edf3f2}
+.cartao-serv li:last-child{border-bottom:0}
+.cartao-serv li svg{width:30px;height:30px;flex:none}
+.cartao-serv small{color:#5b6b6e}
+/* responsável */
+.resp{background:var(--petroleo);color:#e8f3f1;border-radius:26px;padding:1.8rem;display:grid;gap:1.4rem;align-items:center}
+@media(min-width:760px){.resp{grid-template-columns:auto 1fr}}
+.resp h2{color:#fff;margin-bottom:.2rem}
+.resp p{margin:0}
+.dente{width:96px;height:96px;border-radius:28px;background:var(--menta);display:grid;place-items:center}
+/* passos */
+.passos{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.4rem;position:relative}
+@media(min-width:760px){.passos{grid-template-columns:repeat(3,1fr)}.passos::before{content:"";position:absolute;top:36px;left:12%;right:12%;border-top:2px dashed var(--traco)}}
+.passos li{position:relative;text-align:left}
+@media(min-width:760px){.passos li{text-align:center}}
+.passos .bola{width:72px;height:72px;border-radius:50%;background:#fff;border:2px solid var(--petroleo);display:grid;place-items:center;margin-bottom:.8rem;position:relative}
+@media(min-width:760px){.passos .bola{margin-inline:auto}}
+.passos .bola svg{width:32px;height:32px}
+.passos .n{position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:50%;background:var(--coral);color:#3a1b10;font-family:var(--tit);font-weight:700;font-size:.85rem;display:grid;place-items:center}
+.passos p{margin:0}
+/* onde */
+.onde{display:grid;gap:1.4rem;align-items:center;background:#fff;border:1px solid #e1ecea;border-radius:26px;padding:1.4rem;overflow:hidden}
+@media(min-width:860px){.onde{grid-template-columns:1.1fr 1fr;padding:2rem}}
+.onde img{border-radius:18px;width:100%}
+.ilu-cons{background:var(--menta);border-radius:26px;padding:1.2rem}
+.ilu-cons img{border-radius:16px}
+footer{background:#eef6f4;padding:2.6rem 0 2rem;margin-top:3rem}
+.rod{display:grid;gap:1.4rem}
+@media(min-width:760px){.rod{grid-template-columns:1.2fr 1fr}}
+footer h2{font-size:1.4rem}
+footer ul{list-style:none;padding:0;margin:0}
+footer li a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+footer p{margin:0 0 .4rem}
+.wolf{margin-top:2rem;padding-top:1rem;border-top:1px solid #d5e5e1;font-size:.85rem;color:#5b6b6e}
+.wolf p{margin:0 0 .3rem}
+/* ===== Movimento (WolfStudio v3) — só roda com JS e sem "reduzir movimento" ===== */
+:root{--e:cubic-bezier(.2,.7,.2,1)}
+.anim :is(.icones li,.atend>div,.resp,.wrap>h2,.passos li,.onde){transition:opacity .7s var(--e) var(--d,0ms),translate .8s var(--e) var(--d,0ms),scale .8s var(--e) var(--d,0ms),rotate .8s var(--e) var(--d,0ms),transform .35s var(--e),box-shadow .35s,border-color .25s,background-color .25s}
+.anim :is(.icones li,.atend>div,.resp,.wrap>h2,.passos li,.onde):not(.in){opacity:0;translate:var(--tx,0px) var(--ty,22px);scale:var(--sc,1)}
+@keyframes sobe{from{opacity:0;translate:0 18px}}
+@keyframes gira{to{rotate:360deg}}
+@media print{.anim *{opacity:1!important;translate:none!important;scale:none!important;clip-path:none!important}}
+/* botões */
+.btn{transition:background-color .2s,color .2s,transform .25s var(--e),box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 20px -14px rgba(31,95,107,.7)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{transition:transform .3s var(--e)}
+.btn:hover svg{transform:scale(1.12) rotate(-6deg)}
+.sigla span{transition:rotate .4s var(--e)}
+.sigla:hover span{rotate:-8deg}
+/* lançamento: texto sobe, selo "novo" pulsa, ilustração surge e flutua de leve */
+.barra{animation:desce .6s var(--e) both}
+@keyframes desce{from{opacity:0;translate:0 -10px}}
+.lanc .wrap>div>*{animation:sobe .8s var(--e) both}
+.lanc .wrap>div>:nth-child(2){animation-delay:.1s}.lanc .wrap>div>:nth-child(3){animation-delay:.2s}.lanc .wrap>div>:nth-child(4){animation-delay:.3s}
+.novo::before{animation:ponto 1.8s ease-in-out infinite}
+@keyframes ponto{50%{scale:.55;opacity:.5}}
+.ilu{animation:surge 1s var(--e) .15s both,flutua 6s ease-in-out 1.2s infinite alternate}
+@keyframes surge{from{opacity:0;scale:.92}}
+@keyframes flutua{to{translate:0 -10px}}
+/* cartões de informação */
+.icones li:hover{transform:translateY(-4px);box-shadow:0 16px 24px -20px rgba(31,95,107,.6);border-color:var(--menta)}
+.ic{transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
+.icones li:hover .ic{transform:rotate(-6deg) scale(1.08)}
+/* serviços: itens entram um a um */
+.anim .cartao-serv li{transition:opacity .5s var(--e) calc(.3s + var(--k,0)*.12s),translate .5s var(--e) calc(.3s + var(--k,0)*.12s)}
+.anim .cartao-serv:not(.in) li{opacity:0;translate:-14px 0}
+.cartao-serv li:nth-child(2){--k:1}
+.anim .resp{--sc:.97}
+.dente{transition:rotate .5s var(--e)}
+.resp:hover .dente{rotate:-8deg}
+/* 3 passos: a linha tracejada se desenha e as bolinhas "pulam" */
+.passos::before{transition:clip-path 1.3s var(--e) .2s}
+.anim .passos:not(:has(li.in))::before{clip-path:inset(-2px 100% -2px 0)}
+.anim .passos:has(li.in)::before{clip-path:inset(-2px 0 -2px 0)}
+.bola{transition:scale .6s cubic-bezier(.3,1.5,.5,1) calc(var(--d,0ms) + .1s)}
+.anim .passos li:not(.in) .bola{scale:.5}
+.passos .n{transition:scale .4s cubic-bezier(.3,1.7,.5,1) calc(var(--d,0ms) + .5s)}
+.anim .passos li:not(.in) .n{scale:0}
+.anim .onde{--sc:.98}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
+<script>(function(d){if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches)d.classList.add('anim')})(document.documentElement)</script>
 </head>
 <body>
-<div class="ribbon"><b>Demonstração WolfStudio</b> · proposta de site de lançamento. Não é o site oficial da clínica.</div>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="demo" role="note">Demonstração WolfStudio — não é o site oficial.</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-dente" viewBox="0 0 32 32"><path d="M10 4c-4 0-6 3-6 7 0 3 1 5 2 7l1.5 8c.3 1.6 2.5 1.6 2.8 0L12 20c.3-1.4 1.2-2 2-2h4c.8 0 1.7.6 2 2l1.7 6c.3 1.6 2.5 1.6 2.8 0L26 18c1-2 2-4 2-7 0-4-2-7-6-7-2.5 0-4 1.5-6 1.5S12.5 4 10 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 32 32"><path d="M16 29s9-8.5 9-15a9 9 0 0 0-18 0c0 6.5 9 15 9 15Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="14" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-tel" viewBox="0 0 32 32"><path d="M8 4h5l2 7-3 2a16 16 0 0 0 7 7l2-3 7 2v5a3 3 0 0 1-3 3C14 27 5 18 5 7a3 3 0 0 1 3-3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-rel" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 9v7l5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 13h22M11 4v6M21 4v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-porta" viewBox="0 0 32 32"><path d="M8 28V5h16v23M4 28h24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="17" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="m5 9 11 8 11-8" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  </defs>
+</svg>
 
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#topo" aria-label="Dietrich Odontologia, início">
-      <span class="mark"><svg viewBox="0 0 200 240" aria-hidden="true"><path d="M100 28C78 12 40 14 34 52c-4 28 12 48 16 78 4 40 6 84 24 86 16 2 14-48 26-48s10 50 26 48c18-2 20-46 24-86 4-30 20-50 16-78-6-38-44-40-66-24Z" fill="#fff"/></svg></span>
-      <span><strong>Dietrich Odontologia</strong><small>Guabiruba, Santa Catarina</small></span>
-    </a>
-    <nav class="links" aria-label="Principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#agendar">Agendar</a>
-      <a href="#local">Localização</a>
-      <a class="btn btn-p btn-sm" href="#agendar">Agendar avaliação</a>
-    </nav>
-  </div>
+<header class="wrap barra">
+  <a class="sigla" href="#inicio"><span aria-hidden="true">DO</span>Dietrich Odontologia</a>
+  <a class="tel" href="tel:+5547992651303"><span class="so-desk">(47) 99265-1303</span><span class="so-mob">Ligar</span></a>
 </header>
 
-<main id="topo">
-  <section class="hero">
-    <div class="wrap hero-grid">
+<main id="conteudo">
+  <section class="lanc" id="inicio" aria-labelledby="titulo">
+    <div class="wrap">
       <div>
-        <h1>Cuidar do seu sorriso, sem pressa e sem complicação.</h1>
-        <p class="lead">Clínica odontológica nova no bairro São Pedro, em Guabiruba. Escolha o motivo e o período, e a gente responde pelo WhatsApp com os horários disponíveis.</p>
-        <div class="cta">
-          <a class="btn btn-p" href="#agendar">Agendar avaliação</a>
-          <a class="btn btn-o" href="#servicos">Ver serviços</a>
-        </div>
-        <div class="facts">
-          <div><b>Rua Antonio Carminatti, 944</b>São Pedro, Guabiruba/SC</div>
-          <div><b>(47) 99265-1303</b>Atendimento pelo WhatsApp</div>
+        <span class="novo">Novo em Guabiruba</span>
+        <h1 id="titulo">Dietrich Odontologia</h1>
+        <p class="sub">Consultório odontológico no bairro São Pedro, em Guabiruba.</p>
+        <div class="acoes">
+          <a class="btn btn-p" href="tel:+5547992651303"><svg aria-hidden="true" style="color:#fff"><use href="#i-tel"/></svg>Ligar para agendar</a>
+          <a class="btn btn-l" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Antonio%20Carminatti%2C%20944%2C%20S%C3%A3o%20Pedro%2C%20Guabiruba%20-%20SC%2C%2088360-000" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Como chegar</a>
         </div>
       </div>
-      <div class="stage" role="img" aria-label="Ilustração de um dente">
-        <svg class="tooth" viewBox="0 0 200 240" aria-hidden="true">
-          <path class="body" pathLength="1" d="M100 28C78 12 40 14 34 52c-4 28 12 48 16 78 4 40 6 84 24 86 16 2 14-48 26-48s10 50 26 48c18-2 20-46 24-86 4-30 20-50 16-78-6-38-44-40-66-24Z"/>
-          <path class="shine" d="M62 50c4-10 16-16 28-12"/>
-        </svg>
-        <div class="badge"><b>Avaliação inicial</b>Agende em menos de um minuto.</div>
+      <img class="ilu" src="assets/sorriso-geometrico.svg" width="520" height="440" alt="Ilustração geométrica: arco de sorriso com dentes em traço sobre um círculo verde-menta, com detalhes em coral">
+    </div>
+  </section>
+
+  <section aria-labelledby="t-boas">
+    <div class="wrap">
+      <h2 id="t-boas" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Informações rápidas</h2>
+      <ul class="icones">
+        <li><span class="ic" style="color:var(--petroleo)"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><b>Endereço</b><p>Rua Antonio Carminatti, 944 · São Pedro</p></div></li>
+        <li><span class="ic" style="color:var(--petroleo)"><svg aria-hidden="true"><use href="#i-tel"/></svg></span><div><b>Agendamento</b><p>Por telefone: <a href="tel:+5547992651303">(47) 99265-1303</a></p></div></li>
+        <li><span class="ic" style="color:var(--petroleo)"><svg aria-hidden="true"><use href="#i-rel"/></svg></span><div><b>Horário</b><p>Sob consulta. Combine por telefone.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="t-atend">
+    <div class="wrap atend">
+      <div>
+        <h2 id="t-atend">Atendimento</h2>
+        <p>Empresa de atividade odontológica aberta em julho de 2026, no bairro São Pedro.</p>
+        <div class="ilu-cons"><img src="assets/consultorio-traco.svg" width="480" height="300" loading="lazy" alt="Ilustração em traço de um consultório odontológico: cadeira, refletor e janela"></div>
+      </div>
+      <div class="cartao-serv">
+        <span class="modelo">Modelo a confirmar com a clínica</span>
+        <ul>
+          <li style="color:var(--petroleo)"><svg aria-hidden="true"><use href="#i-dente"/></svg><div><h3 style="margin:0">Clínica geral</h3><small>Consulta odontológica</small></div></li>
+          <li style="color:var(--petroleo)"><svg aria-hidden="true"><use href="#i-cal"/></svg><div><h3 style="margin:0">Outros tratamentos</h3><small>Sob consulta</small></div></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section id="servicos">
-    <div class="wrap svc-grid">
-      <div class="svc-head">
-        <div class="kicker">Serviços</div>
-        <h2>Cuidado completo para você e sua família.</h2>
-        <p>Toque em um serviço para tirar dúvidas direto no WhatsApp.</p>
-        <p class="note">Serviços de exemplo do setor. A lista final é definida pela clínica.</p>
-      </div>
-      <div>
-        <a class="svc" data-s="avaliação e diagnóstico"><div><h3>Avaliação e diagnóstico</h3><p>Primeira visita, exame e plano de tratamento pensado para você.</p></div><span>Perguntar</span></a>
-        <a class="svc" data-s="limpeza e prevenção"><div><h3>Limpeza e prevenção</h3><p>Profilaxia, orientação de higiene e acompanhamento regular.</p></div><span>Perguntar</span></a>
-        <a class="svc" data-s="restaurações"><div><h3>Restaurações</h3><p>Tratamento de cáries com acabamento estético.</p></div><span>Perguntar</span></a>
-        <a class="svc" data-s="clareamento"><div><h3>Clareamento</h3><p>Opções indicadas após avaliação clínica.</p></div><span>Perguntar</span></a>
-        <a class="svc" data-s="tratamento de canal"><div><h3>Endodontia</h3><p>Tratamento de canal quando indicado, com foco em conforto.</p></div><span>Perguntar</span></a>
-        <a class="svc" data-s="próteses e reabilitação"><div><h3>Próteses e reabilitação</h3><p>Soluções para repor dentes e devolver função e estética.</p></div><span>Perguntar</span></a>
+  <section class="sec" aria-labelledby="t-resp" style="padding-top:0">
+    <div class="wrap">
+      <div class="resp">
+        <div class="dente" aria-hidden="true" style="color:var(--petroleo)"><svg width="52" height="52"><use href="#i-dente"/></svg></div>
+        <div>
+          <h2 id="t-resp">Responsável</h2>
+          <p><strong>João Victor Dietrich</strong>, sócio responsável pela Dietrich Odontologia.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="book" id="agendar">
-    <div class="wrap book-grid">
-      <div>
-        <div class="kicker" style="color:var(--aqua)">Agendamento</div>
-        <h2>Marque sua avaliação pelo WhatsApp.</h2>
-        <ol class="steps">
-          <li><div><b>Você monta a mensagem</b><span>Escolha o motivo e o melhor período ao lado.</span></div></li>
-          <li><div><b>A clínica confirma o horário</b><span>Você recebe as opções disponíveis na própria conversa.</span></div></li>
-          <li><div><b>Você faz a avaliação inicial</b><span>Conversa, exame e um plano de cuidado combinado com você.</span></div></li>
-        </ol>
-      </div>
-      <form id="book" autocomplete="off">
-        <fieldset>
-          <legend>Motivo da consulta</legend>
-          <div class="chips">
-            <label class="chip"><input type="radio" name="motivo" value="avaliação inicial" checked><span>Avaliação inicial</span></label>
-            <label class="chip"><input type="radio" name="motivo" value="limpeza"><span>Limpeza</span></label>
-            <label class="chip"><input type="radio" name="motivo" value="clareamento"><span>Clareamento</span></label>
-            <label class="chip"><input type="radio" name="motivo" value="dor ou urgência"><span>Dor ou urgência</span></label>
-            <label class="chip"><input type="radio" name="motivo" value="outro assunto"><span>Outro</span></label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Melhor período</legend>
-          <div class="chips">
-            <label class="chip"><input type="radio" name="periodo" value="de preferência pela manhã" checked><span>Manhã</span></label>
-            <label class="chip"><input type="radio" name="periodo" value="de preferência à tarde"><span>Tarde</span></label>
-            <label class="chip"><input type="radio" name="periodo" value="em qualquer período"><span>Tanto faz</span></label>
-          </div>
-        </fieldset>
-        <div style="margin-bottom:1.3rem">
-          <label class="t" for="nome">Seu nome (opcional)</label>
-          <input type="text" id="nome" name="nome" placeholder="Como devemos te chamar?">
-        </div>
-        <div class="preview"><small>Prévia da mensagem</small><div id="msg" aria-live="polite"></div></div>
-        <a class="btn btn-wa" id="go" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
-      </form>
+  <section class="sec" aria-labelledby="t-passos" style="padding-top:0">
+    <div class="wrap">
+      <h2 id="t-passos">Primeira consulta em 3 passos</h2>
+      <ol class="passos">
+        <li style="color:var(--petroleo)"><span class="bola"><svg aria-hidden="true"><use href="#i-tel"/></svg><span class="n">1</span></span><h3>Ligue</h3><p style="color:var(--texto)">Chame no (47) 99265-1303.</p></li>
+        <li style="color:var(--petroleo)"><span class="bola"><svg aria-hidden="true"><use href="#i-cal"/></svg><span class="n">2</span></span><h3>Combine o horário</h3><p style="color:var(--texto)">Escolha o dia que fica melhor para você.</p></li>
+        <li style="color:var(--petroleo)"><span class="bola"><svg aria-hidden="true"><use href="#i-porta"/></svg><span class="n">3</span></span><h3>Venha ao consultório</h3><p style="color:var(--texto)">Rua Antonio Carminatti, 944, São Pedro.</p></li>
+      </ol>
     </div>
   </section>
 
-  <section id="local">
-    <div class="wrap loc-grid">
-      <div>
-        <div class="kicker">Localização</div>
-        <h2>No coração do São Pedro, em Guabiruba.</h2>
-        <div class="addr">
-          <p><small>Endereço</small>Rua Antonio Carminatti, 944<br>São Pedro, Guabiruba/SC · CEP 88360-000</p>
-          <p><small>WhatsApp</small>(47) 99265-1303</p>
+  <section class="sec" id="onde" aria-labelledby="t-onde" style="padding-top:0">
+    <div class="wrap">
+      <div class="onde">
+        <div>
+          <h2 id="t-onde">Onde fica</h2>
+          <p>Rua Antonio Carminatti, 944<br>Bairro São Pedro · Guabiruba/SC · 88360-000</p>
+          <a class="btn btn-p" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Antonio%20Carminatti%2C%20944%2C%20S%C3%A3o%20Pedro%2C%20Guabiruba%20-%20SC%2C%2088360-000" target="_blank" rel="noopener"><svg aria-hidden="true" style="color:#fff"><use href="#i-pin"/></svg>Abrir no Google Maps</a>
         </div>
-        <a class="btn btn-o" href="https://www.google.com/maps/search/?api=1&query=Rua+Antonio+Carminatti+944+Guabiruba+SC" target="_blank" rel="noopener">Como chegar</a>
+        <img src="assets/mapa-bairro.svg" width="480" height="280" loading="lazy" alt="Ilustração de mapa com ruas e um marcador coral, sem escala">
       </div>
-      <div class="map"><iframe title="Mapa da Dietrich Odontologia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Rua+Antonio+Carminatti+944,+Guabiruba+SC&output=embed"></iframe></div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>Dietrich Odontologia · Guabiruba/SC · (47) 99265-1303</span>
-    <span>Demonstração criada pela WolfStudio</span>
+    <div class="rod">
+      <div>
+        <h2>Dietrich Odontologia</h2>
+        <p>Rua Antonio Carminatti, 944 · São Pedro · Guabiruba/SC · 88360-000</p>
+        <p>CNPJ 68.250.060/0001-04</p>
+      </div>
+      <ul>
+        <li><a href="tel:+5547992651303"><svg width="22" height="22" aria-hidden="true" style="margin-right:.5rem"><use href="#i-tel"/></svg>Ligar (47) 99265-1303</a></li>
+        <li><a href="mailto:herrjdietrich@gmail.com"><svg width="22" height="22" aria-hidden="true" style="margin-right:.5rem"><use href="#i-mail"/></svg>herrjdietrich@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="wolf">
+      <p>Demonstração feita por WolfStudio. Não é o site oficial da Dietrich Odontologia.</p>
+      <p>Ilustrações e ícones feitos para esta demonstração. Cores propostas, sem marca definida.</p>
+    </div>
   </div>
 </footer>
-<a class="btn btn-wa float" id="fl" href="#" target="_blank" rel="noopener">WhatsApp</a>
-
 <script>
-const W='https://wa.me/5547992651303',f=document.getElementById('book'),out=document.getElementById('msg'),go=document.getElementById('go');
-function upd(){
-  const d=new FormData(f),n=(d.get('nome')||'').trim();
-  const t='Olá, Dietrich Odontologia! '+(n?'Meu nome é '+n+'. ':'')+'Quero agendar: '+d.get('motivo')+', '+d.get('periodo')+'.';
-  out.textContent=t;go.href=W+'?text='+encodeURIComponent(t);
-}
-f.addEventListener('input',upd);f.addEventListener('submit',e=>e.preventDefault());upd();
-document.querySelectorAll('[data-s]').forEach(a=>{a.href=W+'?text='+encodeURIComponent('Olá! Quero saber mais sobre '+a.dataset.s+'.');a.target='_blank';a.rel='noopener'});
-document.getElementById('fl').href=W+'?text='+encodeURIComponent('Olá, gostaria de agendar uma avaliação.');
+/* Movimento (WolfStudio v3): revelar ao rolar, contadores e menu ativo. */
+(function(){
+  var R=document.documentElement; if(!R.classList.contains('anim')) return;
+  try{
+    var SEL='.icones li,.atend>div,.resp,.wrap>h2,.passos li,.onde', CNT='.sem-contador';
+    var io=new IntersectionObserver(function(es){
+      var n=0;
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el=e.target; io.unobserve(el);
+        if(n) el.style.setProperty('--d',Math.min(n,7)*90+'ms');
+        n++; el.classList.add('in');
+        setTimeout(function(){el.style.removeProperty('--d')},1700);
+      });
+    },{threshold:.08,rootMargin:'0px 0px -5% 0px'});
+    var pend=[].slice.call(document.querySelectorAll(SEL));
+    pend.forEach(function(el){io.observe(el)});
+    /* rolagem rápida pode pular um bloco: o que já ficou para cima aparece sem esperar */
+    var tv=0;
+    function varre(){pend=pend.filter(function(el){
+      if(el.classList.contains('in')) return false;
+      if(el.getBoundingClientRect().bottom<0){io.unobserve(el);el.classList.add('in');return false}
+      return true;
+    })}
+
+    function conta(el){
+      var tn=null;
+      [].some.call(el.childNodes,function(c){if(c.nodeType===3&&/\d,\d/.test(c.nodeValue)){tn=c;return true}});
+      if(!tn) return;
+      var full=tn.nodeValue, m=full.match(/(\d+),(\d)/), alvo=parseFloat(m[1]+'.'+m[2]), t0=null;
+      function f(t){
+        if(!t0) t0=t;
+        var p=Math.min(1,(t-t0)/1100), v=alvo*(1-Math.pow(1-p,3));
+        tn.nodeValue=p<1?full.replace(m[0],v.toFixed(1).replace('.',',')):full;
+        if(p<1) requestAnimationFrame(f);
+      }
+      requestAnimationFrame(f);
+    }
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cio.unobserve(e.target);conta(e.target)}})},{threshold:.6});
+    [].forEach.call(document.querySelectorAll(CNT),function(el){cio.observe(el)});
+
+    var links=[].slice.call(document.querySelectorAll('nav a[href^="#"]')), mapa={};
+    var sio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      links.forEach(function(a){a.classList.remove('on')}); mapa[e.target.id].classList.add('on');
+    })},{rootMargin:'-40% 0px -55% 0px'});
+    links.forEach(function(a){var s=document.getElementById(a.getAttribute('href').slice(1)); if(s&&s.id!=='conteudo'){mapa[s.id]=a;sio.observe(s)}});
+
+    var espera=false;
+    function rolar(){
+      espera=false; var y=window.scrollY||0;
+      R.classList.toggle('rolou',y>8);
+      clearTimeout(tv); if(pend.length) tv=setTimeout(varre,180);
+      if(y<160) links.forEach(function(a){a.classList.remove('on')});
+
+    }
+    window.addEventListener('scroll',function(){if(!espera){espera=true;requestAnimationFrame(rolar)}},{passive:true});
+    window.addEventListener('resize',rolar);
+    rolar();
+
+  }catch(err){R.classList.remove('anim')}
+})();
 </script>
 </body>
 </html>
